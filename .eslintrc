@@ -1,0 +1,16 @@
+{
+    "env": {
+        "browser": true,
+        "node": true
+    },
+    "rules": {
+        "strict": 0,
+        "quotes": 0,
+        "no-unused-vars": 0,
+        "camelcase": 0,
+        "no-shadow": 0,
+        "no-multi-space': 0,
+        "no-underscore-dangle": 0,
+        "no-use-before-define": 0
+    }
+}
