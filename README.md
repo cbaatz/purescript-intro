@@ -1,27 +1,22 @@
 This overview aims to explain what PureScript is and the basics of how to use
-it for those familiar with Haskell. This is not trying to make an argument for
-functional programming [^1], nor is it an exhaustive overview of
-PureScript[^2]. My goal is that you come away from this talk simply with the
-ability to see how PureScript could fit into a particular project.
+it for those familiar with Haskell and JavaScript. This is not trying to make
+an argument for functional programming, nor is it an exhaustive overview of
+PureScript. For the former see [*Why Functional Programming
+Matters*](https://www.cs.kent.ac.uk/people/staff/dat/miranda/whyfp90.pdf) and
+for the latter see [*PureScript by
+Example*](https://leanpub.com/purescript/read).
+
+My goal is that you come away from this talk with a basic understanding for how
+PureScript works and the ability to judge whether it would be a good fit a
+particular project.
 
 Our focus will be on writing programs for browsers. Though PureScript can be
 used on the backend with Node, I don't see any good reasons to prefer it over
 Haskell in new projects. For browser code however, I think PureScript has
 chosen a compelling set of trade-offs.
 
-Because of this focus I assume some familiarity with JavaScript. If you know
-what a CommonJS module is you will probably be fine. If you don't, you might
-find some details confusing. Regardless, please do ask if you are confused!
-
 Finally, I'm not a PureScript expert. Despite that I hope I'll be able to
-explain its core features and save you some time investigating and reading.
-
-[^1]: [*Why Functional Programming
-  Matters*](https://www.cs.kent.ac.uk/people/staff/dat/miranda/whyfp90.pdf)
-
-[^2]: Phil Freeman's [*PureScript by
-  Example*](https://leanpub.com/purescript/read) is a good comprehensive
-introduction to PureScript for those who are new to functional programming.
+explain its core features and save you some investigation time.
 
 What is PureScript?
 -------------------
