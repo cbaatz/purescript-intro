@@ -4,3 +4,4 @@ bower_components/
 purescript_modules/
 public/
 dist/
+.psci_modules/
