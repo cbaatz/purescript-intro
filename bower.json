@@ -1,0 +1,20 @@
+{
+  "name": "purescript-intro",
+  "version": "0.1.0",
+  "homepage": "https://github.com/cbaatz/purescript-intro",
+  "authors": [
+    "Carl Baatz <carl.baatz@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "purescript-console": "~0.1.0"
+  }
+}
