@@ -1,0 +1,10 @@
+:m src/purs/Main.purs
+:m ../bower_components/purescript-console/src/Control/Monad/Eff/Console.purs
+:m ../bower_components/purescript-eff/src/Control/Monad/Eff.purs
+:m ../bower_components/purescript-eff/src/Control/Monad/Eff/Class.purs
+:m ../bower_components/purescript-eff/src/Control/Monad/Eff/Unsafe.purs
+:m ../bower_components/purescript-prelude/src/Prelude.purs
+:f ../bower_components/purescript-console/src/Control/Monad/Eff/Console.js
+:f ../bower_components/purescript-eff/src/Control/Monad/Eff.js
+:f ../bower_components/purescript-eff/src/Control/Monad/Eff/Unsafe.js
+:f ../bower_components/purescript-prelude/src/Prelude.js
