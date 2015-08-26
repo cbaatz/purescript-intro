@@ -18,16 +18,20 @@ Haskell types, PureScript defines tuples as normal type and data constructors,
 
 The curried PureScript function:
 
-    multiply :: Number -> Number -> Number
-    multiply x y = x * y
+```purescript
+multiply :: Number -> Number -> Number
+multiply x y = x * y
+```
 
 Translates into a JavaScript function as:
 
-    var multiply = function (x) {
-        return function (y) {
-            return x * y;
-        };
+```javascript
+var multiply = function (x) {
+    return function (y) {
+        return x * y;
     };
+};
+```
 
 You can `make` from the repository root and look at the compiled files in the
 `purescript_modules` directory. You can also do `make node` from there to start
@@ -47,13 +51,15 @@ If we export our modules to be used from JavaScript, we often want the
 uncurried form since that is more conventional JavaScript. We achieve that with
 the `mkFnX` functions from the `purescript-functions` library:
 
-    import Data.Function (mkFn2, Fn2(..))
-    
-    multiply :: Fn2 Number Number Number
-    multiply = mkFn2 multiply'
+```purescript
+import Data.Function (mkFn2, Fn2(..))
 
-    multiply' :: Number -> Number -> Number
-    multiply' x y = x * y
+multiply :: Fn2 Number Number Number
+multiply = mkFn2 multiply'
+
+multiply' :: Number -> Number -> Number
+multiply' x y = x * y
+```
     
 Can be used from JavaScript as:
 
@@ -101,29 +107,31 @@ It's easy to explore these types in `psci` using the `:t` command:
 
 ### Example: Export primitive JavaScript values
 
-    boolean :: Boolean
-    boolean = true
+```purescript
+boolean :: Boolean
+boolean = true
 
-    string :: String
-    string = "Hello, PureScript!"
+string :: String
+string = "Hello, PureScript!"
 
-    number :: Number
-    number = 3.14159
+number :: Number
+number = 3.14159
 
-    int :: Int
-    int = 42
+int :: Int
+int = 42
 
-    array :: Array Int
-    array = [1,2,3]
+array :: Array Int
+array = [1,2,3]
 
-    record :: Object ( foo :: Int, bar :: String )
-    record = { foo: 1, bar: "quux" }
+record :: Object ( foo :: Int, bar :: String )
+record = { foo: 1, bar: "quux" }
 
-    recordAltSyntax :: { foo :: Int, bar :: String }
-    recordAltSyntax = { foo: 1, bar: "quux" }
+recordAltSyntax :: { foo :: Int, bar :: String }
+recordAltSyntax = { foo: 1, bar: "quux" }
 
-    arrayTriple :: forall a. a -> Array a
-    arrayTriple x = [x, x, x]
+arrayTriple :: forall a. a -> Array a
+arrayTriple x = [x, x, x]
+```
 
 These translate directly to JavaScript as you would expect (you can check the
 output in `purescript_modules`). Note however that the PureScript `Array` type

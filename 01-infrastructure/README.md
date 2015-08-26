@@ -80,10 +80,12 @@ its use in Node. It is based around a convention that treats the names
 `exports`, `require`, and `module` in a file specially. We can define a module
 that imports a `crypto` module and exports a `sha1` function:
 
-    var crypto = require("crypto");
-    exports.sha1 = function (data) {
-      return crypto.createHash('sha1').update(data).digest('hex');
-    };
+```javascript
+var crypto = require("crypto");
+exports.sha1 = function (data) {
+  return crypto.createHash('sha1').update(data).digest('hex');
+};
+```
 
 Tools like Browserify or Webpack can bundle CommonJS modules into fewer files
 and make the handling of the special `require`, `exports`, and `module` names

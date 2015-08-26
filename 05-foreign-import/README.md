@@ -26,15 +26,19 @@ effectful functions then.
 
 We can define a curried JavaScript function in `src/purs/Function.js`:
 
-    exports.multiplyCurried = function(a) {
-      return function(b) {
-        return a * b;
-      };
-    };
+```javascript
+exports.multiplyCurried = function(a) {
+  return function(b) {
+    return a * b;
+  };
+};
+```
 
 `src/purs/Function.purs`:
 
-    foreign import multiplyCurried :: Number -> Number -> Number
+```purescript
+foreign import multiplyCurried :: Number -> Number -> Number
+```
 
 And we can use this from PureScript:
 
@@ -48,13 +52,17 @@ it in PureScript:
 
 `src/purs/Function.js`:
 
-    exports.multiplyUncurried = function(a, b) {
-      return a * b;
-    };
+```javascript
+exports.multiplyUncurried = function(a, b) {
+  return a * b;
+};
+```
 
 `src/purs/Function.purs`:
 
-    foreign import multiplyUncurried :: Fn2 Number Number Number
+```purescript
+foreign import multiplyUncurried :: Fn2 Number Number Number
+```
 
 To use this from PureScript requires that we "uncurry" the `Fn2` type with the
 `Data.Function.runFn2` function:
@@ -66,23 +74,27 @@ To use this from PureScript requires that we "uncurry" the `Fn2` type with the
 
 Let's consider the foreign module `src/purs/Simple.js`:
 
-    // module Import.Simple
+```javascript
+// module Import.Simple
 
-    exports.string = "MASH";
-    exports.integer = 3;
-    exports.boolean = true;
-    exports.array = [1,2,3];
-    exports.object = { foo: 1, bar: "quux" };
+exports.string = "MASH";
+exports.integer = 3;
+exports.boolean = true;
+exports.array = [1,2,3];
+exports.object = { foo: 1, bar: "quux" };
+```
 
 And import the exports into our `src/purs/Simple.purs` module:
 
-    module Import.Simple where
+```purescript
+module Import.Simple where
 
-    foreign import string :: String
-    foreign import integer :: Int
-    foreign import boolean :: Boolean
-    foreign import array :: Array Int
-    foreign import object :: Object ( foo :: Int, bar :: String )
+foreign import string :: String
+foreign import integer :: Int
+foreign import boolean :: Boolean
+foreign import array :: Array Int
+foreign import object :: Object ( foo :: Int, bar :: String )
+```
 
 If we load `psci` with these modules and foreigns (like you would invoke `psc`,
 but with `psci` instead and no `--output` argument) we can try to access these
@@ -101,10 +113,12 @@ this, PureScript provides the
 package. This defines a `data Foreign :: *` type which can represent any
 foreign value and an `IsForeign` typeclases:
 
-    type F = Either ForeignError
+```purescript
+type F = Either ForeignError
 
-    class IsForeign a where
-      read :: Foreign -> F a
+class IsForeign a where
+  read :: Foreign -> F a
+```
 
 We can then create instances for any type that we can safely coerce a `Foreign`
 value to. `purescript-foreign` provides several functions that allow us to
@@ -112,37 +126,41 @@ inspect and safely coerce foreign values to specific types (see the Pursuit
 documentation). For example, we can define an function that returns an object
 or undefined:
 
-    exports.getValue = function(bool) {
-      if (bool) {
-        return {
-          foo: 1,
-          bar: "quux"
-        };
-      } else {
-        return undefined;
-      }
+```javascript
+exports.getValue = function(bool) {
+  if (bool) {
+    return {
+      foo: 1,
+      bar: "quux"
     };
+  } else {
+    return undefined;
+  }
+};
+```
 
 And then import this together with a safe Foreign coerce (parse) function:
 
-    import Prelude
-    import Data.Foreign
-    import Data.Foreign.Class
+```purescript
+import Prelude
+import Data.Foreign
+import Data.Foreign.Class
 
-    data FooBar = FooBar Int String
+data FooBar = FooBar Int String
 
-    instance showFooBar :: Show FooBar where
-      show (FooBar i s) = "FooBar " ++ (show i) ++ " " ++ s
+instance showFooBar :: Show FooBar where
+  show (FooBar i s) = "FooBar " ++ (show i) ++ " " ++ s
 
-    instance isForeignFooBar :: IsForeign FooBar where
-      read value = do
-        foo <- readProp "foo" value
-        bar <- readProp "bar" value
-        return $ FooBar foo bar
+instance isForeignFooBar :: IsForeign FooBar where
+  read value = do
+    foo <- readProp "foo" value
+    bar <- readProp "bar" value
+    return $ FooBar foo bar
 
-    foreign import getValue :: Boolean -> Foreign
+foreign import getValue :: Boolean -> Foreign
+```
 
-Which we can the use as follows:
+Which we can then use as follows:
 
     > import Import.Data
     > import Data.Foreign
