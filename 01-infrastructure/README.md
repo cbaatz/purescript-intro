@@ -49,11 +49,11 @@ install bower with `npm install -g bower`. It can save dependencies to a
 `bower.json` file, which peforms part of the role of a `.cabal` file for a
 Haskell project.
 
-## Example: List available libraries
+### Example: List available libraries
 
     bower search purescript-
 
-## Example: Install the `prelude` and `console` libraries
+### Example: Install the `prelude` and `console` libraries
 
     bower install --save-dev purescript-prelude purescript-console
 
@@ -103,7 +103,7 @@ To compile PureScript code, we need to tell the compiler where to find:
 - Library PureScript files
 - JavaScript files used by libraries in foreign function imports
 
-## Example: Compile PureScript files and inspect the output
+### Example: Compile PureScript files and inspect the output
 
 From the same directory as this README, we can invoke the compiler as follows,
 assuming we've already installed the `purescript-prelude` and
@@ -118,7 +118,7 @@ assuming we've already installed the `purescript-prelude` and
 This produces a set of CommonJS modules in `purescript_modules` that you can
 inspect to see how PureScript compiles into JavaScript.
 
-## Example: Run a compiled PureScript program in Node
+### Example: Run a compiled PureScript program in Node
 
 If you're working with Node, you can import the CommonJS modules produced by
 the PureScript compiler into your JavaScript modules directly, as you would any
@@ -153,13 +153,15 @@ JavaScript, it seems that your files will be bloated. If you're happy to let
 PureScript take the lead and be the main entry point to your code, you can use
 `psc-bundle` which performs dead code elimination.
 
-## Example: Bundle code using `psc-bundle` and run in a browser
+### Example: Bundle code using `psc-bundle` and run in a browser
     
 If we use `psc-bundle` to bundle our code, we can either produce:
 
 1. A file that creates a global namespace (`PS` by default) when it loads.
 2. A file that automatically runs the `main` function of a specified "main"
    module when it loads. We achieve this with the `--main` argument.
+
+For example:
 
     psc-bundle ../purescript_modules/**/*.js --module=Main -o dist/passive.js
     psc-bundle ../purescript_modules/**/*.js --module=Main --main=Main -o dist/active.js
@@ -175,7 +177,7 @@ modules have been included. `psc-bundle` has removed functions that aren't used
 from PureScript generated CommonJS modules to reduce the size of the JavaScript
 bundle.
 
-## Example: Bundle code using Browserify and run in a browser
+### Example: Bundle code using Browserify and run in a browser
 
     mkdir dist
     cp src/html/*.html dist/
