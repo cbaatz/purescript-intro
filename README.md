@@ -1,5 +1,3 @@
-*NOTE: This introduction will be in heavy flux for the next few days.*
-
 PureScript introduction
 =======================
 
