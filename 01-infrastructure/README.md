@@ -111,11 +111,11 @@ From the same directory as this README, we can invoke the compiler as follows,
 assuming we've already installed the `purescript-prelude` and
 `purescript-console` libraries in the parent directory:
 
-    psc          '../bower_components/purescript-*/**/*.purs' \
-        --ffi    '../bower_components/purescript-*/**/*.js' \
-                 './src/purs/**/*.purs' \
-        --ffi    './src/purs/**/*.js' \
-        --output '../purescript_modules'
+    psc       '../bower_components/purescript-*/src/**/*.purs' \
+        --ffi '../bower_components/purescript-*/src/**/*.js' \
+              './src/purs/**/*.purs' \
+        --ffi './src/purs/**/*.js' \
+        --output purescript_modules/
 
 This produces a set of CommonJS modules in `purescript_modules` that you can
 inspect to see how PureScript compiles into JavaScript.

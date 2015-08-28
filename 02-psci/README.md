@@ -9,8 +9,8 @@ without loading some libraries. You can load libraries manually from the REPL
 using `:l` (and `:f` for the foreign files) or you can specify them via a glob
 on startup (similar to how you use the compiler):
 
-    psci       'bower_components/purescript-*/**/*.purs' \
-         --ffi 'bower_components/purescript-*/**/*.js' \
+    psci       'bower_components/purescript-*/src/**/*.purs' \
+         --ffi 'bower_components/purescript-*/src/**/*.js' \
                'src/purs/**/*.purs' \
          --ffi 'src/purs/**/*.js'
 
