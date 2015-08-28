@@ -2,7 +2,12 @@ PureScript introduction
 =======================
 
 This introduction aims to explain what PureScript is and how it can be used for
-those familiar with Haskell and JavaScript.
+those familiar with Haskell and JavaScript. The notes were originally written
+as the basis of a talk, but they should be fairly self-contained. Each section
+has its own folder, often with example files that you can run and inspect.
+
+*Please don't hesitate to open issues (or send pull requests) for errors or
+parts that are confusing.*
 
 My goal is that you come away from this introduction with a basic understanding
 for how PureScript works and with the ability to judge whether PureScript would
@@ -66,18 +71,30 @@ JavaScript, ClojureScript, or whatever you or your libraries currently use. Or
 you can write your whole client application in PureScript only.
 
 With Node, you can also use PureScript on the backend, though I don't see much
-reason to choose PureScript over the more mature and powerful Haskell (and GHC)
-for that. PureScript might, however, be compelling if you need to incrementally
+reason to choose PureScript over the more mature and powerful Haskell (and
+GHC). PureScript might, however, be compelling if you need to incrementally
 improve on an existing JavaScript or ClojureScript backend.
 
-Basically, if you wished you could use Haskell to write browser programs,
-PureScript might be for you. If you prefer (or are not bothered by) different
-runtime semantics (and their implications), then there are other options like
-[Elm](http://elm-lang.org/) and [GHCJS](https://github.com/ghcjs/ghcjs) that
-you should also investigate.
+Do note that PureScript is a young project that hasn't yet proven itself in a
+wide range of real-world scenarios.  There is also strong competition from
+solutions like [GHCJS](https://github.com/ghcjs/ghcjs) and
+[Elm](http://elm-lang.org/) that take a different approach to improving browser
+development.
 
-Personally, I think PureScript has the potential to significantly expand the
-use and acceptance of strongly typed functional languages. Nowadays, most
-projects need non-trivial JavaScript code for browser applications. I suspect
-PureScript might be one of the most realistic ways to introduce functional
-programming to a production project.
+I think PureScript might have the potential to significantly expand the use and
+comfort with strongly typed functional languages. Because it lives in the Node
+eco-system and produces readable JavaScript, I suspect many will find it less
+intimidating than Haskell. Given the large number JavaScript projects, this
+will hopefully encourage more people to learn and use strongly typed functional
+languages.
+
+Further reading
+---------------
+
+- [*PureScript by Example*](https://leanpub.com/purescript/read)
+- [Differences from Haskell](https://github.com/purescript/purescript/wiki/Differences-from-Haskell)
+- [PureScript wiki](https://github.com/purescript/purescript/wiki)
+- [Handling Effects](http://www.purescript.org/learn/eff/)
+- [QuickCheck to test JavaScript code](http://www.purescript.org/learn/quickcheck/)
+- [The Foreign Function Interface](http://www.purescript.org/learn/ffi/)
+- [Getting started using Pulp](http://www.purescript.org/learn/getting-started/)
