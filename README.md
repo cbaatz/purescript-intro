@@ -88,6 +88,19 @@ intimidating than Haskell. Given the large number JavaScript projects, this
 will hopefully encourage more people to learn and use strongly typed functional
 languages.
 
+## Table of Contents
+
+- [Infrastructure](./01-infrastructure/)
+- [PSCi](./02-psci/)
+- [Pursuit](./03-pursuit/)
+- [Foreign Export](./04-foreign-export/)
+- [Foreign Import](./05-foreign-import/)
+- [Records](./06-records/)
+- [Effects](./07-effects/)
+- [Type Classes](./08-type-classes/)
+- [ADTs](./09-adts/)
+- [Miscellaneous](./10-misc/)
+
 Further reading
 ---------------
 
